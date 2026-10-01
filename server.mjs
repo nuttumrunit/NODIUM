@@ -6,12 +6,12 @@ import { DatabaseSync } from 'node:sqlite'
 
 const root = fileURLToPath(new URL('.', import.meta.url))
 const distRoot = resolve(root, 'dist')
-const dataRoot = resolve(root, '.nodium', 'data')
+const dataRoot = resolve(root, '.wallemo', 'data')
 mkdirSync(dataRoot, { recursive: true })
 
-const PORT = Number(process.env.NODIUM_PORT || 4188)
-const HOST = process.env.NODIUM_HOST || '127.0.0.1'
-const DB_PATH = process.env.NODIUM_DB_PATH || join(dataRoot, 'nodium.sqlite')
+const PORT = Number(process.env.WALLEMO_PORT || 4188)
+const HOST = process.env.WALLEMO_HOST || '127.0.0.1'
+const DB_PATH = process.env.WALLEMO_DB_PATH || join(dataRoot, 'wallemo.sqlite')
 const SOLANA_RPC_URLS = [...new Set([process.env.SOLANA_RPC_URL, 'https://solana-rpc.publicnode.com', 'https://api.mainnet-beta.solana.com'].filter(Boolean))]
 const PUMP_PROGRAM_ID = '6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P'
 const db = new DatabaseSync(DB_PATH)
@@ -43,7 +43,7 @@ function json(res, status, body) {
   res.writeHead(status, {
     'content-type': 'application/json; charset=utf-8',
     'content-length': data.length,
-    'access-control-allow-origin': process.env.NODIUM_ALLOWED_ORIGIN || '*',
+    'access-control-allow-origin': process.env.WALLEMO_ALLOWED_ORIGIN || '*',
     'access-control-allow-headers': 'content-type, authorization',
     'access-control-allow-methods': 'GET, OPTIONS',
     'cache-control': 'no-store',
@@ -111,7 +111,7 @@ async function api(req, res, pathname) {
     const account = await solanaRpc('getAccountInfo', [PUMP_PROGRAM_ID, { encoding: 'base64', commitment: 'confirmed' }])
     const slot = await solanaRpc('getSlot', [{ commitment: 'confirmed' }])
     return json(res, 200, {
-      service: 'nodium-solana-gateway', version: '2.0.0', network: 'solana-mainnet-beta',
+      service: 'wallemo-solana-gateway', version: '2.0.0', network: 'solana-mainnet-beta',
       pumpProgram: PUMP_PROGRAM_ID, explorer: 'https://solscan.io',
       protocol: { launchEnabled: Boolean(account?.value?.executable), instruction: 'create_v2', quoteAsset: 'SOL', slot },
     })
@@ -126,10 +126,10 @@ async function api(req, res, pathname) {
       metadata: 'public URI supplied by the creator', custody: 'wallet and mint sign locally',
     },
     rules: [
-      'NODIUM builds Pump create_v2 transactions for Solana mainnet-beta.',
+      'WALLEMO builds Pump create_v2 transactions for Solana mainnet-beta.',
       'The connected wallet retains custody and approves every broadcast.',
       'A confirmed transaction is public evidence, not an endorsement or audit.',
-      'The official NODIUM mint remains pending until explicitly published.',
+      'The official WALLEMO mint remains pending until explicitly published.',
     ],
   })
 
@@ -189,7 +189,7 @@ const server = createServer(async (req, res) => {
 })
 
 server.listen(PORT, HOST, () => {
-  console.log(`NODIUM Solana Gateway listening on http://${HOST}:${PORT}`)
+  console.log(`WALLEMO Solana Gateway listening on http://${HOST}:${PORT}`)
   console.log(`Pump program: ${PUMP_PROGRAM_ID} / Solana mainnet-beta`)
   console.log(`Database: ${DB_PATH}`)
 })

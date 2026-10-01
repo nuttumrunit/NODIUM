@@ -2,10 +2,7 @@ import { PUMP_PROGRAM_ID, PUMP_SDK, bondingCurvePda } from '@pump-fun/pump-sdk'
 import { ComputeBudgetProgram, Connection, Keypair, PublicKey, Transaction } from '@solana/web3.js'
 import nacl from 'tweetnacl'
 
-const localHost = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname)
-export const RPC_URL = import.meta.env.VITE_SOLANA_RPC_URL || (localHost
-  ? new URL('/api/v1/solana-rpc', window.location.origin).toString()
-  : 'https://solana-rpc.publicnode.com')
+export const RPC_URL = import.meta.env.VITE_SOLANA_RPC_URL || 'https://solana-rpc.publicnode.com'
 export const PROGRAM_ID = PUMP_PROGRAM_ID.toBase58()
 export const EXPLORER_URL = 'https://solscan.io'
 export const NETWORK = 'SOLANA MAINNET-BETA'
@@ -40,7 +37,7 @@ export async function connectAndProveWallet() {
   if (!publicKey) throw new Error('The wallet did not return a public key.')
 
   const message = new TextEncoder().encode(
-    `NODIUM wallet-control proof\nNetwork: Solana mainnet-beta\nWallet: ${publicKey.toBase58()}\nNonce: ${crypto.randomUUID()}\nIssued: ${new Date().toISOString()}\nPurpose: create tokens through pump.fun`,
+    `WALLEMO wallet-control proof\nNetwork: Solana mainnet-beta\nWallet: ${publicKey.toBase58()}\nNonce: ${crypto.randomUUID()}\nIssued: ${new Date().toISOString()}\nPurpose: create tokens through pump.fun`,
   )
   if (!provider.signMessage) throw new Error('This wallet does not support message signing.')
   const signed = await provider.signMessage(message, 'utf8')
@@ -107,9 +104,9 @@ export async function executeLaunch({ provider, publicKey, form }) {
     creator: publicKey.toBase58(),
     createdAt: new Date().toISOString(),
   }
-  const stored = JSON.parse(localStorage.getItem('nodium-solana-launches') || '[]')
-  localStorage.setItem('nodium-solana-launches', JSON.stringify([result, ...stored.filter(item => item.hash !== signature)].slice(0, 100)))
-  window.dispatchEvent(new CustomEvent('nodium:launch', { detail: result }))
+  const stored = JSON.parse(localStorage.getItem('wallemo-solana-launches') || '[]')
+  localStorage.setItem('wallemo-solana-launches', JSON.stringify([result, ...stored.filter(item => item.hash !== signature)].slice(0, 100)))
+  window.dispatchEvent(new CustomEvent('wallemo:launch', { detail: result }))
   return result
 }
 

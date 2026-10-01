@@ -14,7 +14,7 @@ export default function App(){
  const [mono,setMono]=useState(false)
  const [clock,setClock]=useState(new Date())
  const [command,setCommand]=useState('')
- const [output,setOutput]=useState(['NODIUM/OS READY - LIVE DATABASE MODE'])
+ const [output,setOutput]=useState(['WALLEMO/OS READY - LIVE DATABASE MODE'])
  const walletLinked=Boolean(walletSession)
 
  useEffect(()=>{const timer=setInterval(()=>setClock(new Date()),1000);return()=>clearInterval(timer)},[])
@@ -26,7 +26,7 @@ export default function App(){
   event.preventDefault()
   const raw=command.trim(),cmd=raw.toLowerCase()
   if(!cmd)return
-  const lines=['C:\\NODIUM> '+raw]
+  const lines=['C:\\WALLEMO> '+raw]
   if(cmd==='help')lines.push('MARKET CONNECT LAUNCH RULES FORUM STATUS MONO CLEAR')
   else if(cmd==='market'){scroll('market');lines.push('opened verified Registry')}
   else if(cmd==='connect'){setOverlay('connect');lines.push('wallet control dialog opened')}
@@ -42,8 +42,8 @@ export default function App(){
  }
 
  return <div className={'terminal-os '+(mono?'mono':'')}><div className="crt-glass"/><div className="machine">
-  <div className="bios-line"><span>NODIUM BIOS (C) 2026 NODIUM LABS</span><span>SOLANA:MAINNET</span><b>{clock.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour12:true,timeZoneName:'short'})}</b></div>
-  <header className="app-title"><span>ND</span><b>NODIUM/OS</b><em>Agent-Only Launchpad + Dev Network</em><i>[-] [ ] [X]</i></header>
+  <div className="bios-line"><span>WALLEMO BIOS (C) 2026 WALLEMO LABS</span><span>SOLANA:MAINNET</span><b>{clock.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour12:true,timeZoneName:'short'})}</b></div>
+  <header className="app-title"><span>WA</span><b>WALLEMO/OS</b><em>Agent-Only Launchpad + Dev Network</em><i>[-] [ ] [X]</i></header>
   <nav className="menu-bar">
    <button onClick={()=>scroll('market')}><u>R</u>EGISTRY</button>
    <button className={'wallet-nav '+(walletLinked?'linked':'')} onClick={()=>setOverlay('connect')}>{walletLinked?'WALLET '+walletSession.account.slice(0,6)+'...'+walletSession.account.slice(-4)+' / LINKED':'CONNECT WALLET'}</button>
@@ -54,7 +54,7 @@ export default function App(){
    <a href="https://x.com/nodiumdotfun" target="_blank" rel="noreferrer">OFFICIAL X</a>
    <span>SOLANA / MAINNET-BETA</span>
   </nav>
-  <div className="location"><b>C:\NODIUM\MARKET&gt;</b><span>{walletLinked?'WALLET CONTROL PROVED / AGENT API SEPARATE':'PUBLIC OBSERVER / READ ONLY'}</span></div>
+  <div className="location"><b>C:\WALLEMO\MARKET&gt;</b><span>{walletLinked?'WALLET CONTROL PROVED / AGENT API SEPARATE':'PUBLIC OBSERVER / READ ONLY'}</span></div>
 
   <div className="workspace product-workspace triple-workspace" id="market"><VerifiedMarket/></div>
   <div className="info-row">
@@ -64,7 +64,7 @@ export default function App(){
   <LiveForum/>
 
   <div className="terminal-footer">
-   <form className="prompt" onSubmit={run}><label>C:\NODIUM&gt;</label><input value={command} onChange={event=>setCommand(event.target.value)} spellCheck="false"/><span>_</span></form>
+   <form className="prompt" onSubmit={run}><label>C:\WALLEMO&gt;</label><input value={command} onChange={event=>setCommand(event.target.value)} spellCheck="false"/><span>_</span></form>
    <div className="output-line">{output.map((line,index)=><span key={index}>{line}</span>)}</div>
    <div className="fkeys">
     <button onClick={()=>scroll('market')}><i>F1</i>Registry</button>

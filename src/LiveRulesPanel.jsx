@@ -15,20 +15,20 @@ export default function LiveRulesPanel() {
 
   return (
     <section className="frame detailed-rules-panel real-rules-panel" id="rules">
-      <div className="frame-title"><span>|- SYSTEM :: NODIUM RULES -|</span><b>V{record?.version || '2.0.0'} / {state}</b></div>
+      <div className="frame-title"><span>|- SYSTEM :: WALLEMO RULES -|</span><b>V{record?.version || '2.0.0'} / {state}</b></div>
       <div className="info-scroll">
         <div className="info-intro">
-          <b>NODIUM BUILDS PUMP CREATE TRANSACTIONS; THE SOLANA WALLET REMAINS IN CONTROL.</b>
+          <b>WALLEMO BUILDS PUMP CREATE TRANSACTIONS; THE SOLANA WALLET REMAINS IN CONTROL.</b>
           <p>These rules describe the live browser launcher, Registry and public forum. They do not certify a token, its creator or its future market behavior.</p>
         </div>
         <div className="info-chapter">
           <b>WALLET CONTROL</b>
-          <p>The browser connects to a Phantom-compatible Solana provider and requests a one-time Ed25519 signature. A valid signature proves control of that public key at that moment. The private key and seed phrase never enter NODIUM.</p>
+          <p>The browser connects to a Phantom-compatible Solana provider and requests a one-time Ed25519 signature. A valid signature proves control of that public key at that moment. The private key and seed phrase never enter WALLEMO.</p>
         </div>
         <div className="info-chapter">
           <b>HOW TOKEN CREATION WORKS</b>
-          <p>NODIUM uses the official pump.fun TypeScript SDK to build a Pump create_v2 instruction for Solana mainnet-beta. The user supplies a public metadata URI, and a fresh Token-2022 mint keypair is generated locally for the transaction.</p>
-          <p>The connected wallet is the payer, user and creator. The mint and wallet sign locally. NODIUM simulates the signed transaction through Solana RPC before broadcasting it.</p>
+          <p>WALLEMO uses the official pump.fun TypeScript SDK to build a Pump create_v2 instruction for Solana mainnet-beta. The user supplies a public metadata URI, and a fresh Token-2022 mint keypair is generated locally for the transaction.</p>
+          <p>The connected wallet is the payer, user and creator. The mint and wallet sign locally. WALLEMO simulates the signed transaction through Solana RPC before broadcasting it.</p>
         </div>
         <div className="info-chapter">
           <b>WHAT A CONFIRMED LAUNCH MEANS</b>
@@ -37,16 +37,16 @@ export default function LiveRulesPanel() {
         </div>
         <div className="info-chapter">
           <b>LAUNCH INPUTS</b>
-          <p>Pump limits names to 32 characters, symbols to 13 and metadata URIs to 200. NODIUM launches SOL-paired coins. Cashback stays disabled because Pump deprecated it. Holder rewards and Mayhem mode are explicit user choices.</p>
+          <p>Pump limits names to 32 characters, symbols to 13 and metadata URIs to 200. WALLEMO launches SOL-paired coins. Cashback stays disabled because Pump deprecated it. Holder rewards and Mayhem mode are explicit user choices.</p>
         </div>
         <div className="info-chapter">
           <b>SECURITY AND RESPONSIBILITY</b>
-          <p>Wallet owners remain responsible for key security, SOL funding, token metadata, selected Pump modes and every transaction they approve. Solana transactions cannot be reversed by NODIUM.</p>
+          <p>Wallet owners remain responsible for key security, SOL funding, token metadata, selected Pump modes and every transaction they approve. Solana transactions cannot be reversed by WALLEMO.</p>
           <p>A failed simulation is not broadcast. Network congestion, RPC outages, wallet incompatibility or Pump program changes can still prevent a launch.</p>
         </div>
         <div className="info-chapter">
           <b>PUBLIC DATA</b>
-          <p>Public mint addresses, transaction signatures and forum content may be displayed by NODIUM. Unknown values remain marked as unknown. Solana transaction data is the final source for launch confirmation.</p>
+          <p>Public mint addresses, transaction signatures and forum content may be displayed by WALLEMO. Unknown values remain marked as unknown. Solana transaction data is the final source for launch confirmation.</p>
         </div>
         <div className="info-chapter rule-end">
           <b>WORKING PRINCIPLE</b>

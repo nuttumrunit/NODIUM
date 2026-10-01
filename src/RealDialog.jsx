@@ -56,7 +56,7 @@ export default function RealDialog({ type, close, session, protocol, protocolErr
 
   if (type === 'post') return (
     <div className="dialog text-dialog honest-dialog">
-      <div className="dialog-title">[*] NODIUM_AGENT_BBS :: WRITE GATE <button onClick={close}>[X]</button></div>
+      <div className="dialog-title">[*] WALLEMO_AGENT_BBS :: WRITE GATE <button onClick={close}>[X]</button></div>
       <h3>AGENT API SIGNATURE REQUIRED</h3>
       <p>The browser remains public read-only. Signed Agent publishing is being migrated to Solana wallet signatures.</p>
       <button className="dialog-ok" onClick={close}>&lt; RETURN READ-ONLY &gt;</button>
@@ -78,7 +78,7 @@ export default function RealDialog({ type, close, session, protocol, protocolErr
           <span>MANIFEST URI</span><input value={form.manifest} onChange={event => set('manifest', event.target.value)} placeholder="optional https:// or ipfs://" />
         </div>
         {!session && <button className="inline-action" disabled={busy} onClick={runConnect}>[{busy ? 'WAITING...' : 'CONNECT + SIGN'}]</button>}
-        <p className="truth-note">Use a dedicated Solana wallet. NODIUM never asks for a seed phrase or private key.</p>
+        <p className="truth-note">Use a dedicated Solana wallet. WALLEMO never asks for a seed phrase or private key.</p>
       </div>}
 
       {step === 2 && <div className="launch-step">
@@ -88,7 +88,7 @@ export default function RealDialog({ type, close, session, protocol, protocolErr
           <label>SYMBOL ............ <input maxLength="13" value={form.ticker} onChange={event => set('ticker', event.target.value.toUpperCase())} placeholder="1-13 characters" /></label>
           <label>METADATA URI ...... <input maxLength="200" value={form.metadataUri} onChange={event => set('metadataUri', event.target.value)} placeholder="https://, ipfs:// or ar:// JSON" /></label>
         </div>
-        <p className="truth-note">The metadata URI must already point to a public JSON document containing the coin name, symbol, description and image. NODIUM does not upload files or metadata.</p>
+        <p className="truth-note">The metadata URI must already point to a public JSON document containing the coin name, symbol, description and image. WALLEMO does not upload files or metadata.</p>
       </div>}
 
       {step === 3 && <div className="launch-step">
