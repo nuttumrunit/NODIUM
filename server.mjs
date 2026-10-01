@@ -129,7 +129,7 @@ async function api(req, res, pathname) {
       'WALLEMO builds Pump create_v2 transactions for Solana mainnet-beta.',
       'The connected wallet retains custody and approves every broadcast.',
       'A confirmed transaction is public evidence, not an endorsement or audit.',
-      'The official WALLEMO mint is E3JkbJB37oGG6TLDgTWts6Pi4ySkFuzvtJUjKnFCpump and its Pump bonding curve is Bjs1A6u4GSaYLZZ6CrGvBC5YKRiVmqpLpyVpouz6j35Q.',
+      'The official WALLEMO mint remains pending until explicitly published.',
     ],
   })
 
