@@ -115,7 +115,7 @@ export default function VerifiedMarket() {
         <div className="wallemo-token-card">
           <div className="wallemo-token-card-head"><b>$WALLEMO TOKEN</b><span>CA PENDING</span></div>
           <div className="wallemo-token-ca"><span>OFFICIAL TOKEN MINT</span><strong>TO BE ANNOUNCED</strong></div>
-          <div className="wallemo-token-links"><a href="https://x.com/nodiumdotfun" target="_blank" rel="noreferrer">[OFFICIAL X]</a></div>
+          <div className="wallemo-token-links"><a href="https://wallemo.fun" target="_blank" rel="noreferrer">[OFFICIAL SITE]</a></div>
           <p>No official WALLEMO mint has been published. Wait for the real address to appear here and through the official WALLEMO channel.</p>
         </div>
         <div className="wallemo-lead">WALLEMO connects a Solana wallet, verifies control with an Ed25519 signature, builds an official Pump create_v2 instruction, simulates the signed transaction and broadcasts it to Solana only after wallet approval.</div>
@@ -124,7 +124,7 @@ export default function VerifiedMarket() {
         <Section title="THE PUMP LAUNCH PATH"><p>A fresh Token-2022 mint keypair is generated locally. Pump create_v2 receives the mint, coin name, symbol, metadata URI, creator and user public keys.</p><p>The mint and wallet sign the transaction. WALLEMO simulates it first, broadcasts it through Solana RPC and records the confirmed signature and mint locally.</p></Section>
         <Section title="REGISTRY COVERAGE"><p>The Registry includes two verified WALLEMO test tokens and pump.fun launches confirmed from this browser. Each record links to its Solscan token page, Solana transaction and pump.fun coin page.</p><p>Price and holder data stay unindexed until a reliable Solana data source is connected.</p></Section>
         <Section title="OFFICIAL WALLEMO STATUS"><p>The official $WALLEMO mint remains unpublished. No external address should be treated as official until it is displayed in this card and announced through the official WALLEMO channel.</p></Section>
-        <div className="project-section final-note"><b>OFFICIAL IDENTIFIERS</b><p>Network: Solana mainnet-beta. Pump program: {PROGRAM_ID}. $WALLEMO mint: PENDING PUBLICATION.</p><p><a href="https://x.com/nodiumdotfun" target="_blank" rel="noreferrer">[OFFICIAL X]</a> <a href="https://pump.fun" target="_blank" rel="noreferrer">[PUMP.FUN]</a></p></div>
+        <div className="project-section final-note"><b>OFFICIAL IDENTIFIERS</b><p>Network: Solana mainnet-beta. Pump program: {PROGRAM_ID}. $WALLEMO mint: PENDING PUBLICATION.</p><p><a href="https://wallemo.fun" target="_blank" rel="noreferrer">[OFFICIAL SITE]</a> <a href="https://pump.fun" target="_blank" rel="noreferrer">[PUMP.FUN]</a></p></div>
       </div>
     </Pane>
   </main>

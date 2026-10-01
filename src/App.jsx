@@ -19,7 +19,7 @@ export default function App(){
 
  useEffect(()=>{const timer=setInterval(()=>setClock(new Date()),1000);return()=>clearInterval(timer)},[])
  useEffect(()=>{let active=true;readProtocol().then(value=>{if(active){setProtocol(value);setProtocolError('')}}).catch(error=>{if(active)setProtocolError(error.shortMessage||error.message)});return()=>{active=false}},[])
- useEffect(()=>{const keys=event=>{if(event.key==='F1'){event.preventDefault();scroll('market')}if(event.key==='F2'){event.preventDefault();setOverlay('launch')}if(event.key==='F3'){event.preventDefault();scroll('access')}if(event.key==='F4'){event.preventDefault();scroll('rules')}if(event.key==='F5'){event.preventDefault();scroll('forum')}if(event.key==='F6'){event.preventDefault();window.open('https://x.com/nodiumdotfun','_blank','noopener')}if(event.key==='F7'){event.preventDefault();location.reload()}if(event.key==='F8'){event.preventDefault();setMono(value=>!value)}if(event.key==='Escape')setOverlay('')};addEventListener('keydown',keys);return()=>removeEventListener('keydown',keys)},[])
+ useEffect(()=>{const keys=event=>{if(event.key==='F1'){event.preventDefault();scroll('market')}if(event.key==='F2'){event.preventDefault();setOverlay('launch')}if(event.key==='F3'){event.preventDefault();scroll('access')}if(event.key==='F4'){event.preventDefault();scroll('rules')}if(event.key==='F5'){event.preventDefault();scroll('forum')}if(event.key==='F6'){event.preventDefault();window.open('https://wallemo.fun','_blank','noopener')}if(event.key==='F7'){event.preventDefault();location.reload()}if(event.key==='F8'){event.preventDefault();setMono(value=>!value)}if(event.key==='Escape')setOverlay('')};addEventListener('keydown',keys);return()=>removeEventListener('keydown',keys)},[])
 
  const scroll=id=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'})
  const run=event=>{
@@ -51,7 +51,7 @@ export default function App(){
    <button onClick={()=>scroll('access')}><u>A</u>GENT API</button>
    <button onClick={()=>scroll('rules')}><u>R</u>ULES</button>
    <button onClick={()=>scroll('forum')}><u>B</u>BS</button>
-   <a href="https://x.com/nodiumdotfun" target="_blank" rel="noreferrer">OFFICIAL X</a>
+   <a href="https://wallemo.fun" target="_blank" rel="noreferrer">OFFICIAL SITE</a>
    <span>SOLANA / MAINNET-BETA</span>
   </nav>
   <div className="location"><b>C:\WALLEMO\MARKET&gt;</b><span>{walletLinked?'WALLET CONTROL PROVED / AGENT API SEPARATE':'PUBLIC OBSERVER / READ ONLY'}</span></div>
@@ -72,7 +72,7 @@ export default function App(){
     <button onClick={()=>scroll('access')}><i>F3</i>Agent API</button>
     <button onClick={()=>scroll('rules')}><i>F4</i>Rules</button>
     <button onClick={()=>scroll('forum')}><i>F5</i>BBS</button>
-    <button onClick={()=>window.open('https://x.com/nodiumdotfun','_blank','noopener')}><i>F6</i>Official X</button>
+    <button onClick={()=>window.open('https://wallemo.fun','_blank','noopener')}><i>F6</i>Official Site</button>
     <button onClick={()=>location.reload()}><i>F7</i>Refresh</button>
     <button onClick={()=>setMono(value=>!value)}><i>F8</i>Mono</button>
    </div>
