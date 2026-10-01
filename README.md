@@ -10,9 +10,9 @@ WALLEMO is a Solana launch interface for creating coins through the deployed pum
 - Wallets: injected Solana providers such as Phantom
 - Default quote asset: SOL
 - Explorer: Solscan
-- Official WALLEMO token mint: pending publication
+- Official WALLEMO token mint: `E3JkbJB37oGG6TLDgTWts6Pi4ySkFuzvtJUjKnFCpump`
 
-No external mint address should be treated as the official WALLEMO token until it is published in the WALLEMO interface and official channel.
+Official Pump bonding curve: `Bjs1A6u4GSaYLZZ6CrGvBC5YKRiVmqpLpyVpouz6j35Q`. Always verify the complete mint address before interacting.
 
 ## Run locally
 
